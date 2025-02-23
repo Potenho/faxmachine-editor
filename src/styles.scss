@@ -175,9 +175,13 @@
     h1, h2, h3, h4, h5, h6 {
         @apply font-bold tracking-wide;
     }
+
+    button {
+        @apply cursor-pointer py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-dt-accent-500 dark:text-dt-text-900 dark:border-dt-accent-600 dark:hover:text-dt-text-900 dark:hover:bg-dt-accent-600;
+    }
 }
 
 
 body {
-    @apply font-semibold bg-lt-background-500 dark:bg-dt-background-100 text-lt-text-100 dark:text-dt-text-900;
+    @apply font-semibold bg-lt-background-600 dark:bg-dt-background-50 text-lt-text-100 dark:text-dt-text-900;
 }

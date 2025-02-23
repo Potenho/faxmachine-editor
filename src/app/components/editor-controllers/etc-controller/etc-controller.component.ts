@@ -19,6 +19,6 @@ export class EtcControllerComponent {
       return;
     }
     console.log('aaaaa')
-    this.colorService.setColorShades(TeamColorTypes.TeamNeutral, color);
+    this.colorService.setTeamColorShades(TeamColorTypes.TeamNeutral, color);
   }
 }
