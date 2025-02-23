@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+
+@custom-variant light (&:where(.light, .light *));
+
+// Ignore
+@theme {
+
+    // Light Theme Colors
+
+    --color-lt-text-50:  hsl(245, 44%, 95%);
+    --color-lt-text-100: hsl(249, 41%, 90%);
+    --color-lt-text-200: hsl(250, 43%, 80%);
+    --color-lt-text-300: hsl(248, 42%, 70%);
+    --color-lt-text-400: hsl(249, 43%, 60%);
+    --color-lt-text-500: hsl(249, 43%, 50%);
+    --color-lt-text-600: hsl(249, 43%, 40%);
+    --color-lt-text-700: hsl(248, 42%, 30%);
+    --color-lt-text-800: hsl(250, 43%, 20%);
+    --color-lt-text-900: hsl(249, 41%, 10%);
+    --color-lt-text-950: hsl(251, 44%, 5%);
+
+    --color-lt-background-50:  hsl(255, 31%, 95%);
+    --color-lt-background-100: hsl(251, 33%, 90%);
+    --color-lt-background-200: hsl(252, 33%, 80%);
+    --color-lt-background-300: hsl(252, 33%, 70%);
+    --color-lt-background-400: hsl(252, 33%, 60%);
+    --color-lt-background-500: hsl(252, 33%, 50%);
+    --color-lt-background-600: hsl(252, 33%, 40%);
+    --color-lt-background-700: hsl(252, 33%, 30%);
+    --color-lt-background-800: hsl(252, 33%, 20%);
+    --color-lt-background-900: hsl(251, 33%, 10%);
+    --color-lt-background-950: hsl(248, 31%, 5%);
+
+    --color-lt-primary-50:  hsl(244, 54%, 95%);
+    --color-lt-primary-100: hsl(244, 53%, 90%);
+    --color-lt-primary-200: hsl(244, 55%, 80%);
+    --color-lt-primary-300: hsl(244, 54%, 70%);
+    --color-lt-primary-400: hsl(244, 54%, 60%);
+    --color-lt-primary-500: hsl(244, 54%, 50%);
+    --color-lt-primary-600: hsl(244, 54%, 40%);
+    --color-lt-primary-700: hsl(244, 54%, 30%);
+    --color-lt-primary-800: hsl(244, 55%, 20%);
+    --color-lt-primary-900: hsl(244, 53%, 10%);
+    --color-lt-primary-950: hsl(244, 54%, 5%);
+
+    --color-lt-secondary-50:  hsl(327, 44%, 95%);
+    --color-lt-secondary-100: hsl(329, 45%, 90%);
+    --color-lt-secondary-200: hsl(329, 43%, 80%);
+    --color-lt-secondary-300: hsl(328, 44%, 70%);
+    --color-lt-secondary-400: hsl(328, 44%, 60%);
+    --color-lt-secondary-500: hsl(328, 44%, 50%);
+    --color-lt-secondary-600: hsl(328, 44%, 40%);
+    --color-lt-secondary-700: hsl(328, 44%, 30%);
+    --color-lt-secondary-800: hsl(329, 43%, 20%);
+    --color-lt-secondary-900: hsl(329, 45%, 10%);
+    --color-lt-secondary-950: hsl(327, 44%, 5%);
+
+    --color-lt-accent-50: hsl(0, 44%, 95%);
+    --color-lt-accent-100: hsl(0, 45%, 90%);
+    --color-lt-accent-200: hsl(359, 45%, 80%);
+    --color-lt-accent-300: hsl(359, 45%, 70%);
+    --color-lt-accent-400: hsl(359, 45%, 60%);
+    --color-lt-accent-500: hsl(359, 45%, 50%);
+    --color-lt-accent-600: hsl(359, 45%, 40%);
+    --color-lt-accent-700: hsl(359, 45%, 30%);
+    --color-lt-accent-800: hsl(359, 45%, 20%);
+    --color-lt-accent-900: hsl(0, 45%, 10%);
+    --color-lt-accent-950: hsl(0, 44%, 5%);
+
+    // Dark Theme Colors
+
+    --color-dt-text-50: hsl(251, 44%, 5%);
+    --color-dt-text-100: hsl(249, 41%, 10%);
+    --color-dt-text-200: hsl(250, 43%, 20%);
+    --color-dt-text-300: hsl(248, 42%, 30%);
+    --color-dt-text-400: hsl(249, 43%, 40%);
+    --color-dt-text-500: hsl(249, 43%, 50%);
+    --color-dt-text-600: hsl(249, 43%, 60%);
+    --color-dt-text-700: hsl(248, 42%, 70%);
+    --color-dt-text-800: hsl(250, 43%, 80%);
+    --color-dt-text-900: hsl(249, 41%, 90%);
+    --color-dt-text-950: hsl(245, 44%, 95%);
+
+    --color-dt-background-50: hsl(248, 31%, 5%);
+    --color-dt-background-100: hsl(251, 33%, 10%);
+    --color-dt-background-200: hsl(252, 33%, 20%);
+    --color-dt-background-300: hsl(252, 33%, 30%);
+    --color-dt-background-400: hsl(252, 33%, 40%);
+    --color-dt-background-500: hsl(252, 33%, 50%);
+    --color-dt-background-600: hsl(252, 33%, 60%);
+    --color-dt-background-700: hsl(252, 33%, 70%);
+    --color-dt-background-800: hsl(252, 33%, 80%);
+    --color-dt-background-900: hsl(251, 33%, 90%);
+    --color-dt-background-950: hsl(255, 31%, 95%);
+
+    --color-dt-primary-50: hsl(244, 54%, 5%);
+    --color-dt-primary-100: hsl(244, 53%, 10%);
+    --color-dt-primary-200: hsl(244, 55%, 20%);
+    --color-dt-primary-300: hsl(244, 54%, 30%);
+    --color-dt-primary-400: hsl(244, 54%, 40%);
+    --color-dt-primary-500: hsl(244, 54%, 50%);
+    --color-dt-primary-600: hsl(244, 54%, 60%);
+    --color-dt-primary-700: hsl(244, 54%, 70%);
+    --color-dt-primary-800: hsl(244, 55%, 80%);
+    --color-dt-primary-900: hsl(244, 53%, 90%);
+    --color-dt-primary-950: hsl(244, 54%, 95%);
+
+    --color-dt-secondary-50: hsl(327, 44%, 5%);
+    --color-dt-secondary-100: hsl(329, 45%, 10%);
+    --color-dt-secondary-200: hsl(329, 43%, 20%);
+    --color-dt-secondary-300: hsl(328, 44%, 30%);
+    --color-dt-secondary-400: hsl(328, 44%, 40%);
+    --color-dt-secondary-500: hsl(328, 44%, 50%);
+    --color-dt-secondary-600: hsl(328, 44%, 60%);
+    --color-dt-secondary-700: hsl(328, 44%, 70%);
+    --color-dt-secondary-800: hsl(329, 43%, 80%);
+    --color-dt-secondary-900: hsl(329, 45%, 90%);
+    --color-dt-secondary-950: hsl(327, 44%, 95%);
+
+    --color-dt-accent-50: hsl(0, 44%, 5%);
+    --color-dt-accent-100: hsl(0, 45%, 10%);
+    --color-dt-accent-200: hsl(359, 45%, 20%);
+    --color-dt-accent-300: hsl(359, 45%, 30%);
+    --color-dt-accent-400: hsl(359, 45%, 40%);
+    --color-dt-accent-500: hsl(359, 45%, 50%);
+    --color-dt-accent-600: hsl(359, 45%, 60%);
+    --color-dt-accent-700: hsl(359, 45%, 70%);
+    --color-dt-accent-800: hsl(359, 45%, 80%);
+    --color-dt-accent-900: hsl(0, 45%, 90%);
+    --color-dt-accent-950: hsl(0, 44%, 95%);
+
+    // Team Colors
+
+    --color-team-alpha-50: hsl(273, 68%, 45%);
+    --color-team-alpha-100: hsl(273, 68%, 45%);
+    --color-team-alpha-200: hsl(273, 68%, 45%);
+    --color-team-alpha-300: hsl(273, 68%, 45%);
+    --color-team-alpha-400: hsl(273, 68%, 45%);
+    --color-team-alpha-500: hsl(273, 68%, 45%);
+    --color-team-alpha-600: hsl(273, 68%, 45%);
+    --color-team-alpha-700: hsl(273, 68%, 45%);
+    --color-team-alpha-800: hsl(273, 68%, 45%);
+    --color-team-alpha-900: hsl(273, 68%, 45%);
+    --color-team-alpha-950: hsl(273, 68%, 45%);
+
+
+    --color-team-bravo-50:  hsl(116, 68%, 45%);
+    --color-team-bravo-100: hsl(116, 68%, 45%);
+    --color-team-bravo-200: hsl(116, 68%, 45%);
+    --color-team-bravo-300: hsl(116, 68%, 45%);
+    --color-team-bravo-400: hsl(116, 68%, 45%);
+    --color-team-bravo-500: hsl(116, 68%, 45%);
+    --color-team-bravo-600: hsl(116, 68%, 45%);
+    --color-team-bravo-700: hsl(116, 68%, 45%);
+    --color-team-bravo-800: hsl(116, 68%, 45%);
+    --color-team-bravo-900: hsl(116, 68%, 45%);
+    --color-team-bravo-950: hsl(116, 68%, 45%);
+
+
+    --color-team-neutral-50: hsl(37, 78%, 56%);
+    --color-team-neutral-100: hsl(37, 78%, 56%);
+    --color-team-neutral-200: hsl(37, 78%, 56%);
+    --color-team-neutral-300: hsl(37, 78%, 56%);
+    --color-team-neutral-400: hsl(37, 78%, 56%);
+    --color-team-neutral-500: hsl(37, 78%, 56%);
+    --color-team-neutral-600: hsl(37, 78%, 56%);
+    --color-team-neutral-700: hsl(37, 78%, 56%);
+    --color-team-neutral-800: hsl(37, 78%, 56%);
+    --color-team-neutral-900: hsl(37, 78%, 56%);
+    --color-team-neutral-950: hsl(37, 78%, 56%);
+}
+
+@layer base {
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold tracking-wide;
+    }
+}
+
+
+body {
+    @apply font-semibold bg-lt-background-500 dark:bg-dt-background-100 text-lt-text-100 dark:text-dt-text-900;
+}
