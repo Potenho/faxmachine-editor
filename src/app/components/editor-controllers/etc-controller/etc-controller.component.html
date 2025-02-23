@@ -1,0 +1,24 @@
+<main class="flex flex-col gap-3">
+    <section class="flex-1 bg-lt-background-500 dark:bg-dt-background-500 rounded-lg p-3 flex flex-col gap-3 shadow-xl">
+        <h1 class="text-2xl tracking-wide">Matchmaking Parameters</h1>
+        <span class="flex gap-3 text-lt-background-500 dark:text-dt-background-100">
+            <app-toggle [teamColor]="TeamColorTypes.TeamAlpha"></app-toggle>
+            <label i18n>Low Population Not JP</label>
+        </span>
+        <span class="flex gap-3 text-lt-background-500 dark:text-dt-background-100">
+            <app-toggle [teamColor]="TeamColorTypes.TeamBravo"></app-toggle>
+            <label i18n>Separate Matching JP</label>
+        </span>
+    
+    </section>
+    <section class="flex-1 bg-lt-primary-500 dark:bg-dt-primary-600 rounded-lg p-3 flex flex-col gap-3 shadow-xl">
+        <h1 class="text-2xl tracking-wide text-lt-background-500 dark:text-dt-background-100">Splatfest Panel</h1>
+        <span class="flex gap-3 text-lt-background-500 dark:text-dt-background-100">
+            <app-toggle [teamColor]="TeamColorTypes.TeamNeutral"></app-toggle>
+            <label i18n>Hide Team Names on Board</label>
+        </span>
+    </section>
+    
+</main>
+
+<input class="w-100" type="color" name="" id="" (input)="onColorChange($event)">
