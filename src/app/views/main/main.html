@@ -1,2 +1,26 @@
-<p>main works!</p>
-<input type="file" (change)="onFileSelected($event)" />
+
+<main class="w-full h-screen flex flex-col items-center content-center justify-center gap-8">
+  <span class="card tapes-bg py-8 bg-violet-700 bg-size-[20rem] w-full max-w-xl md:rotate-1 gap-4 font-splatoon1">
+    <p class=" text-2xl text-shadow-2xs text-shadow-black">Welcome to Faxmachine-Editor!</p>
+    <span class="flex gap-4">
+      <a href="https://github.com/Potenho/faxmachine-editor" target="_blank" class="btn-1">GitHub</a>
+      <button class="btn-1">About</button>
+    </span>
+  </span>
+  <span class="card paper-bg product-mask items-center w-full max-w-xl gap-4 h-[70vh] md:-rotate-1">
+    <div class="w-full flex flex-col items-center gap-4 h-full">
+      <label for="file" class="flex-1 w-full flex justify-center items-center transition-colors 
+      duration-45  bg-gray-700/60 hover:bg-gray-700/50 border-4 border-gray-800 rounded-xl
+      border-dashed cursor-pointer">
+        <div class="font-splatoon2 text-2xl text-gray-800 w-[70%]">
+          Click to open or drag and drop
+        </div>
+        <input id="file" name="file" class="hidden" type="file" (change)="onFileSelected($event)" />
+      </label>
+      <div class="flex items-center gap-3 text-xl">
+        <p class="text-gray-800 font-splatoon1">Or...</p>
+        <button class="btn-1 font-splatoon1">Create from Template</button>
+      </div>
+    </div>
+  </span>
+</main>
