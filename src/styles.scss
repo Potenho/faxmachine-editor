@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-gray-200 p-6 bg-white shadow-sm;
+  }
+}

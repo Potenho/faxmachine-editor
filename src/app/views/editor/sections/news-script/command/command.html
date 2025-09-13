@@ -1,0 +1,33 @@
+<main class="command card p-3 flex">
+  @let comm = command();
+
+  @if (comm.Command === 'SpeakRawText') {
+    <div class="flex flex-col w-full">
+      <h1 class="flex justify-between text-sm">
+        <div class='flex gap-4'>
+          <p class=" rounded-full -skew-x-12 bg-gray-400 text-white font-bold px-4"
+          [class.bg-purple-600]="comm.Speaker === 'cIdolLeft'"
+          [class.bg-green-600]="comm.Speaker === 'cIdolRight'"
+          [class.bg-yellow-500]="comm.Speaker === 'cIdolAll'"
+          >{{getSpeaker(comm.Speaker)}}</p>
+          
+          <p class="rounded-full border px-2 border-amber-700 bg-amber-100 text-amber-700">{{getEmotion(comm.Emotion)}}</p>
+
+        </div>
+        <div class="flex gap-4">
+          @if (comm.WaitButton) {
+            <p class="rounded-full border px-2 border-cyan-700 bg-blue-100 text-cyan-700">Press A</p>
+          }
+          @if (comm.Skip) {
+            <p class="rounded-full border px-2 border-red-700 bg-red-100 text-red-700">Unskipable</p>
+          }
+        </div>
+        
+      </h1>
+      <span class="truncate italic">{{comm.Text}}</span>
+    </div>
+  } @else {
+    {{ comm.Command }}
+  }
+
+</main>
