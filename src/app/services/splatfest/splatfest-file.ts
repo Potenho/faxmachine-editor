@@ -3,28 +3,36 @@ import { SplatfestModel } from "../../common/types/splatfest/splatfest-model";
 import { Byaml } from "../byaml/byaml-parser";
 import { InvalidBymlError } from "../byaml/types/errors";
 import { Languages } from "../../common/types/splatfest/languages";
+import { HttpClient } from "@angular/common/http";
+import { lastValueFrom } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SplatfestFileService {
   #byml = inject(Byaml);
+  #httpClient = inject(HttpClient);
 
   async parseSplatfestFile(file: File) {
     const splatfestModel = await this.#byml.readFromBlob<SplatfestModel>(file);
-
-    if (!this.#checkSplatfestModel(splatfestModel)) {
-      // Placeholder
-      throw new InvalidBymlError(
-        'The provided BYAML file is not a valid Splatfest model.'
-      );
-    }
+    this.#checkSplatfestModel(splatfestModel)
 
     return splatfestModel;
   }
 
   writeSplatfestFile(model: SplatfestModel): Uint8Array {
     return this.#byml.write(model);
+  }
+
+  async getTemplateFile() {
+    const template = await lastValueFrom(
+      this.#httpClient.get('templates/template.byaml', { responseType: 'blob' })
+    );
+  
+    const splatfestModel = await this.#byml.read<SplatfestModel>(await template.arrayBuffer());
+    this.#checkSplatfestModel(splatfestModel)
+
+    return splatfestModel;
   }
 
   #checkSplatfestModel(model: Record<string, any>): model is SplatfestModel {
@@ -39,7 +47,10 @@ export class SplatfestFileService {
     ];
 
     for (const validator of validators) {
-      if (!validator( model)) return false;
+      if (!validator(model))
+        throw new InvalidBymlError(
+          'The provided BYAML file is not a valid Splatfest model.'
+        );
     }
 
     return true;
@@ -59,7 +70,7 @@ export class SplatfestFileService {
     if (conditions.some(c => !c)) return false;
 
     if (
-      model['HideTeamNamesOnBoard'] 
+      model['HideTeamNamesOnBoard']
       && typeof model['HideTeamNamesOnBoard'] !== 'boolean'
     ) return false;
 
