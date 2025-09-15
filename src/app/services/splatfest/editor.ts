@@ -20,8 +20,13 @@ export class EditorService {
   splatfestModel = computed<SplatfestModel | null>(() => this.#mergeSplatfestModel());
   isEditing = computed(() => !!this.splatfestModel());
 
-  async initializeEditor(file: File) {
+  async initializeFromFile(file: File) {
     const splatfestModel = await this.#splatfestFile.parseSplatfestFile(file);
+    this.#setSplatfestParts(splatfestModel);
+  }
+
+  async initializeFromTemplate() {
+    const splatfestModel = await this.#splatfestFile.getTemplateFile();
     this.#setSplatfestParts(splatfestModel);
   }
 

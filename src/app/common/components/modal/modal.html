@@ -1,0 +1,18 @@
+@if(modalOpen()) {
+  <main class="fixed inset-0 w-full h-full flex justify-center items-center"
+  animate.enter="overlayFadeIn"
+  animate.leave="slideOut">
+
+    <div class="relative p-8 pt-10 flex-col justify-center w-[90%] md:w-full max-w-[40rem] z-1 shadow-md black" [class]="cardRotationClass()" 
+    animate.enter="slideIn">
+      <div class="absolute inset-0 card circles-bg product-mask -z-10 w-full h-full" [class]="bgColor()"></div>
+      <div class="space-y-4">
+        <header class="font-splatoon1 text-2xl">
+          <ng-content select="header"></ng-content>
+        </header>
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="absolute bg-black/40 w-full h-full" (click)="onOverlayClick()"></div>
+  </main>
+}

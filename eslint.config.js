@@ -21,6 +21,7 @@ module.exports = tseslint.config(
           argsIgnorePattern: '^_'
         }
       ],
+      "@angular-eslint/template/click-events-have-key-events": 'off',
       "@angular-eslint/directive-selector": [
         "error",
         {

@@ -11,16 +11,28 @@
     @apply text-stone-50;
   }
   
+  button, a {
+    @apply cursor-pointer;
+  }
+  
   body {
-    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[46rem];
+    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[26rem];
   }
 }
 
 @layer components {
   .btn-1 {
-    @apply z-1 w-fit px-4 py-1 relative inline-block cursor-pointer text-shadow-2xs text-shadow-black
+    @apply w-fit px-4 py-1 relative inline-block cursor-pointer text-shadow-2xs text-shadow-black
       before:absolute before:-inset-1 before:block before:-z-1 before:-skew-y-[0.02rad]
     before:bg-pink-600 hover:before:bg-pink-500 shadow-2xs;
+  }
+
+  .btn-2 {
+    @apply font-splatoon1 bg-violet-600 hover:bg-violet-500 text-lg w-fit p-8 rounded-full font-bold py-1 cursor-pointer text-shadow-2xs text-shadow-black;
+  }
+
+  .circles-bg {
+     @apply bg-[url(../public/assets/images/backgrounds/circles-transparent.a777f2c3.png)] bg-cover bg-repeat-y
   }
 
   .paper-bg {
@@ -33,7 +45,7 @@
   }
 
   .card {
-    @apply rounded-lg p-8 md:p-12 pb-8 w-fit flex flex-col;
+    @apply rounded-lg pt-10 p-8 w-fit flex flex-col;
   }
 
   .product-mask {
