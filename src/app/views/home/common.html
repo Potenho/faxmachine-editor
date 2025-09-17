@@ -6,8 +6,10 @@
   </span>
   <router-outlet class="hidden"></router-outlet>
   <span class="w-full flex justify-center gap-4 p-4">
-    <a [href]="githubRepo" target="_blank" class="text-gray-400 underline">Github</a>
+    <a class="text-gray-400 underline" [routerLink]="'/home'">Home</a>
     <div class="text-gray-600">-</div>
-    <a class="text-gray-400 underline">About</a>
+    <a class="text-gray-400 underline" [routerLink]="'/about'">About</a>
+    <div class="text-gray-600">-</div>
+    <a [href]="githubRepo" target="_blank" class="text-gray-400 underline">Github</a>
   </span>
 </main>
