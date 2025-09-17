@@ -1,17 +1,20 @@
 import { Component, inject, signal } from '@angular/core';
-import { EditorService } from '../../services/splatfest/editor';
+import { EditorService } from '../../../services/splatfest/editor';
 import { Router } from '@angular/router';
-import { Modal } from "../../common/components/modal/modal";
+import { environment } from '../../../../environments/environment';
+import { Modal } from "../../../common/components/modal/modal";
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-home',
   imports: [Modal],
-  templateUrl: './main.html',
-  styleUrl: './main.scss'
+  templateUrl: './home.html',
+  styleUrl: './home.scss'
 })
-export class Main {
+export class Home {
   #editorService = inject(EditorService);
   #router = inject(Router);
+
+  appVersion = environment.version;
 
   hasError = signal(false);
 

@@ -24,7 +24,7 @@
   .btn-1 {
     @apply w-fit px-4 py-1 relative inline-block cursor-pointer text-shadow-2xs text-shadow-black
       before:absolute before:-inset-1 before:block before:-z-1 before:-skew-y-[0.02rad]
-    before:bg-pink-600 hover:before:bg-pink-500 shadow-2xs;
+    before:bg-pink-600 hover:before:bg-pink-500 before:shadow-2xs before:shadow-black/20;
   }
 
   .btn-2 {

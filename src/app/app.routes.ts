@@ -1,12 +1,16 @@
 import { Routes } from '@angular/router';
 import { Editor } from './views/editor/editor';
-import { Main } from './views/main/main';
 import { isEditingGuard } from './common/guards/is-editing/is-editing-guard';
 import { NewsScript } from './views/editor/sections/news-script/news-script';
 import { Teams } from './views/editor/sections/teams/teams';
+import { Common } from './views/home/common';
+import { Home } from './views/home/home/home';
 
 export const routes: Routes = [
-  { path: '', component: Main }, 
+  { path: '', component: Common, children: [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: Home },
+  ] }, 
   { path: 'editor', component: Editor, canActivateChild: [isEditingGuard], canActivate: [isEditingGuard], children: [
     { path: '', redirectTo: 'news-script', pathMatch: 'full' },
     { path: 'news-script', component: NewsScript },
