@@ -1,10 +1,41 @@
 <main class="w-full flex justify-center items-center">
   <div class="relative card w-full max-w-[40rem]">
-    <div class="absolute card inset-0 -z-10 w-full tapes-bg bg-size-[30rem] bg-violet-700 product-mask rotate-1"></div>
-    <img class="absolute h-9 -left-13 -top-1 -rotate-25" src="assets/images/decos/tape-1.6b0c0681.png" alt="">
-    <span class="text-xl flex flex-col gap-4">
+    <div class="absolute card inset-0 -z-10 w-full tapes-bg bg-size-[30rem] bg-violet-700 product-mask md:rotate-1"></div>
+    <img class="absolute h-9 -left-4 md:-left-13 -top-1 -rotate-5 md:-rotate-25" src="assets/images/decos/tape-1.6b0c0681.png" alt="">
+    <img class="absolute h-25 md:h-35 -bottom-10 md:-top-9 lg:-top-15 right-0 md:-right-10 rotate-13 md:rotate-4 drop-shadow-md drop-shadow-black/30" src="assets/images/decos/squid-sisters-logo.ab0c0681.png" alt="">
+    <span class="flex flex-col gap-4 text-gray-300 text-lg">
       <header class="font-splatoon1 font-bold text-3xl text-shadow-2xs text-shadow-black">What is this?</header>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, blanditiis voluptas. Vero quisquam itaque assumenda dolor illo velit unde, id explicabo asperiores molestiae tenetur iste nihil, eos ullam neque inventore.</p>
+      <p class="text-inherit">
+        This is a site designed to make creating Splatfests for Splatoon 1 much easier.
+        Its main purpose is to simplify and speed up the process of setting up custom splatfests for
+        the Splatoon community. (Of course this site is unofficial!)
+      </p>
+      <p class="text-inherit">
+        The tool was originally developed for the Splatfestival team but was later made publicly
+        available due to its usefulness and the community’s interest. Additionally, you can find its
+        source code <a [href]="githubRepo" target="_blank" class="underline">here</a>.
+      </p>
+      <header class="font-splatoon1 font-bold text-3xl text-shadow-2xs text-shadow-black">How was this made?</header>
+      <p class="text-inherit">
+        This was made using 
+        <a [href]="'https://angular.dev'" target="_blank" class="underline">Angular</a>
+        and 
+        <a [href]="'https://tailwindcss.com'" target="_blank" class="underline">Tailwind CSS</a>
+        with no need of a backend.
+        The design is heavily inspired by
+        <a [href]="'https://tailwindcss.com'" target="_blank" class="underline">Splatoon3.ink</a>
+        and official splatoon websites.
+      </p>
+      <header class="font-splatoon1 font-bold text-3xl text-shadow-2xs text-shadow-black">Credits</header>
+      <div class="text-gray-300">
+        <p class="text-inherit">
+          - Developer: PurplePote (yellowpurple)
+        </p>
+        <p class="text-inherit">
+          - Assets: Nintendo
+        </p>
+      </div>
+      <a [routerLink]="''" class="text-gray-200 hover:text-white font-splatoon2 underline-offset-4 underline">« Editor</a>
     </span>
   </div>
 </main>
