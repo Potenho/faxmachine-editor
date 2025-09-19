@@ -1,13 +1,22 @@
 
 <main class="relative h-screen flex flex-col justify-between">
-  <span class="font-splatoon1 text-xl mx-auto py-4 md:text-3xl lg:text-5xl lg:mx-0">
+  <a class="font-splatoon1 text-xl mx-auto py-4 md:text-3xl lg:text-5xl lg:mx-0"
+  [routerLink]="'/home'">
     FaxMachine <b class="hidden md:contents">Editor </b>
     <b class="text-[12px] md:text-2xl bg-violet-600/40 px-4 rounded-full text-purple-400">v{{appVersion}}</b>
-  </span>
+  </a>
   <router-outlet class="hidden"></router-outlet>
-  <span class="w-full flex justify-center gap-4 p-4">
-    <a [href]="githubRepo" target="_blank" class="text-gray-400 underline">Github</a>
-    <div class="text-gray-600">-</div>
-    <a class="text-gray-400 underline">About</a>
+  <span class="p-4 flex flex-col justify-center items-center">
+    <p class="text-gray-500 text-xs text-center">
+      This website is not affiliated with Nintendo.
+      All product names, logos, and brands are property of their respective owners.
+    </p>
+    <span class="w-full flex justify-center gap-4">
+      <a class="text-gray-400 hover:text-gray-300 underline" [routerLink]="'/home'">Home</a>
+      <div class="text-gray-600">-</div>
+      <a class="text-gray-400 hover:text-gray-300 underline" [routerLink]="'/about'">About</a>
+      <div class="text-gray-600 ">-</div>
+      <a [href]="githubRepo" target="_blank" class="text-gray-400 hover:text-gray-300 underline">Github</a>
+    </span>
   </span>
 </main>
