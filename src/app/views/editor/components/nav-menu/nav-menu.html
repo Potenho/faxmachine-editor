@@ -1,17 +1,17 @@
-<nav class="relative w-full" animate.enter="enter-animation">
+<nav class="relative w-full">
   
   <span class="@container w-full flex justify-between items-center rounded-full bg-white/10 md:bg-white/0">
     <div class="relative">
       <button 
       animate.enter="enter-animation"
       (click)="isMenuOpen.set(!isMenuOpen())"
-      class="w-11 h-11 gap-4 rounded-full text-center flex justify-center items-center md:backdrop-brightness-200 md:backdrop-blur-sm text-gray-300 hover:text-white cursor-pointer">
+      class="w-11 h-11 gap-4 rounded-full text-center flex justify-center items-center md:bg-white/10 md:backdrop-blur-sm text-gray-300 hover:text-white cursor-pointer">
         <fa-icon class="text-lg" [icon]="['fas', 'bars']"></fa-icon>
       </button>
 
       <ul
       [style.display]="isMenuOpen() ? 'block' : 'none'"
-      class="absolute mt-2 font-splatoon2 text-lg text-gray-300 px-4 py-2 backdrop-brightness-200 backdrop-blur-sm rounded-md w-40 text-nowrap">
+      class="absolute mt-2 font-splatoon2 text-lg text-gray-300 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-md w-40 text-nowrap">
         <li>
           <button (click)="onSaveClick()" class="flex gap-2 items-center hover:text-white">
             <fa-icon [icon]="['fas', 'file']"></fa-icon>
@@ -28,7 +28,7 @@
     </div>
     <main 
     animate.enter="enter-animation"
-    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:backdrop-brightness-200 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
+    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:bg-white/10 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
       <a 
       class="hover:text-white px-2 @[418px]:px-4 rounded-full"
       [routerLink]="'/editor/general'"
