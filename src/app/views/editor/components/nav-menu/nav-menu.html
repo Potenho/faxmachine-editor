@@ -1,11 +1,76 @@
-<div class="inline-flex rounded-md shadow-xs text-gray-900 w-fit" role="group">
-  <button type="button" class="w-[7rem] px-4 py-2 text-sm font-medium bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-    News
-  </button>
-  <button type="button" class="w-[7rem] px-4 py-2 text-sm font-medium bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-    Teams
-  </button>
-  <button type="button" class="w-[7rem] px-4 py-2 text-sm font-medium bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
-    General
-  </button>
-</div>
+<nav class="relative w-full" animate.enter="enter-animation">
+  
+  <span class="@container w-full flex justify-between items-center rounded-full bg-white/10 md:bg-white/0">
+    <div class="relative">
+      <button 
+      animate.enter="enter-animation"
+      (click)="isMenuOpen.set(!isMenuOpen())"
+      class="w-11 h-11 gap-4 rounded-full text-center flex justify-center items-center md:backdrop-brightness-200 md:backdrop-blur-sm text-gray-300 hover:text-white cursor-pointer">
+        <fa-icon class="text-lg" [icon]="['fas', 'bars']"></fa-icon>
+      </button>
+
+      <ul
+      [style.display]="isMenuOpen() ? 'block' : 'none'"
+      class="absolute mt-2 font-splatoon2 text-lg text-gray-300 px-4 py-2 backdrop-brightness-200 backdrop-blur-sm rounded-md w-40 text-nowrap">
+        <li>
+          <button (click)="onSaveClick()" class="flex gap-2 items-center hover:text-white">
+            <fa-icon [icon]="['fas', 'file']"></fa-icon>
+            <p>Save</p>
+          </button>
+        </li>
+        <li>
+          <button (click)="onLeaveConfirmation.set(true)" class="flex gap-2 text-red-500 hover:text-red-400">
+            <div class="w-[22px] flex justify-center">«</div>
+            <p>Go back</p>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <main 
+    animate.enter="enter-animation"
+    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:backdrop-brightness-200 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
+      <a 
+      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      [routerLink]="'/editor/general'"
+      [routerLinkActive]="'bg-violet-600 text-white'">
+        <fa-icon class="text-lg" [icon]="['fas', 'cog']"></fa-icon>
+        <p class="hidden @[418px]:inline">
+          General
+        </p>
+      </a>
+    
+      <a 
+      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      [routerLink]="'/editor/teams'"
+      [routerLinkActive]="'bg-violet-600 text-white'">
+        <fa-icon class="text-lg" [icon]="['fas', 'flag']"></fa-icon>
+        <p class="hidden @[418px]:inline">
+          Teams
+        </p>
+      </a>
+    
+      <a 
+      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      [routerLink]="'/editor/news-script'"
+      [routerLinkActive]="'bg-violet-600 text-white'">
+        <fa-icon class="text-lg" [icon]="['fas', 'newspaper']"></fa-icon>
+        <p class="hidden @[418px]:inline">
+          News
+        </p>
+      </a>
+    </main>
+  </span>
+
+</nav>
+
+<app-modal [(modalOpen)]="onLeaveConfirmation" [bgColor]="'bg-blue-500'">
+  <header>You're about to leave the editor</header>
+  <div class="space-y-4 space-x-4">
+    <p>
+      Are you sure you want to leave? Unsaved changes will be lost.
+    </p>
+    <button class="btn-2" (click)="onLeave(true)">Save</button>
+    <button class="btn-2 to-rose-500 from-pink-700 hover:to-rose-400 hover:from-pink-600" (click)="onLeave(false)">Discard</button>
+    <button class="btn-2" (click)="onLeaveConfirmation.set(false)">Cancel</button>
+  </div>
+</app-modal>

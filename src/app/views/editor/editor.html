@@ -1,8 +1,6 @@
-<main class="space-y-1 h-full flex flex-col">
-  <nav animate.enter="enter-animation" class="w-fit mx-auto py-4">
+<main class="relative h-full w-full flex flex-col gap-4">
+  <nav class="sticky pt-4 top-0 w-full">
     <app-nav-menu></app-nav-menu>
   </nav>
-  <div class="mx-4 flex-1 mb-4">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </main>

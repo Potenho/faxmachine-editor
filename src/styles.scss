@@ -8,7 +8,7 @@
 
 @layer base {
   * {
-    @apply text-stone-50 underline-offset-2;
+    @apply text-inherit underline-offset-2;
   }
   
   button, a {
@@ -16,7 +16,7 @@
   }
   
   body {
-    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[26rem];
+    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[26rem] text-stone-50;
   }
 }
 
@@ -28,7 +28,7 @@
   }
 
   .btn-2 {
-    @apply font-splatoon1 bg-violet-600 hover:bg-violet-500 text-lg w-fit p-8 rounded-full font-bold py-1 cursor-pointer text-shadow-2xs text-shadow-black;
+    @apply font-splatoon1 bg-gradient-to-t to-violet-600 from-indigo-700 hover:to-violet-500 hover:from-indigo-600 text-lg w-fit p-8 rounded-full font-bold py-1 cursor-pointer text-shadow-2xs text-shadow-black;
   }
 
   .circles-bg {

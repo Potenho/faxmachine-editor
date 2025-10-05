@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateChildFn, Router } from '@angular/router';
 import { EditorService } from '../../../services/splatfest/editor';
 
-export const isEditingGuard: CanActivateFn = () => {
+export const isEditingGuard: CanActivateChildFn = () => {
   const editorService = inject(EditorService);
   const router = inject(Router);
 

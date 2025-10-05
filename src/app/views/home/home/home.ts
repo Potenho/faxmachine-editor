@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
-import { EditorService } from '../../../services/splatfest/editor';
 import { Router } from '@angular/router';
-import { environment } from '../../../../environments/environment';
-import { Modal } from "../../../common/components/modal/modal";
+import { Modal } from '@components/modal/modal';
+import { environment } from '@env/environment';
+import { EditorService } from '@services/splatfest/editor';
 
 @Component({
   selector: 'app-home',

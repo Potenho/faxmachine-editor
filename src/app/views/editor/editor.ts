@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { EditorService } from '../../services/splatfest/editor';
 import { RouterOutlet } from '@angular/router';
 import { NavMenu } from "./components/nav-menu/nav-menu";
+import { EditorService } from '@services/splatfest/editor';
 
 @Component({
   selector: 'app-editor',

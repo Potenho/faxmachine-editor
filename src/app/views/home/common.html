@@ -16,7 +16,10 @@
       <div class="text-gray-600">-</div>
       <a class="text-gray-400 hover:text-gray-300 underline" [routerLink]="'/about'">About</a>
       <div class="text-gray-600 ">-</div>
-      <a [href]="githubRepo" target="_blank" class="text-gray-400 hover:text-gray-300 underline">Github</a>
+      <a [href]="githubRepo" target="_blank" class="text-gray-400 hover:text-gray-300 underline flex gap-2">
+        <fa-icon class="" [icon]="['fab', 'github']"/>
+        Github
+      </a>
     </span>
   </span>
 </main>

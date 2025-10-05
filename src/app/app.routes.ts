@@ -6,6 +6,7 @@ import { Teams } from './views/editor/sections/teams/teams';
 import { Common } from './views/home/common';
 import { Home } from './views/home/home/home';
 import { About } from './views/home/about/about';
+import { General } from '@views/editor/sections/general/general';
 
 export const routes: Routes = [
   { path: '', component: Common, children: [
@@ -13,8 +14,9 @@ export const routes: Routes = [
     { path: 'home', component: Home },
     { path: 'about', component: About },
   ] }, 
-  { path: 'editor', component: Editor, canActivateChild: [isEditingGuard], canActivate: [isEditingGuard], children: [
+  { path: 'editor', component: Editor, canActivateChild: [isEditingGuard], children: [
     { path: '', redirectTo: 'news-script', pathMatch: 'full' },
+    { path: 'general', component: General },
     { path: 'news-script', component: NewsScript },
     { path: 'teams', component: Teams },
   ] },
