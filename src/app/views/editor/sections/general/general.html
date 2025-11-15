@@ -1,1 +1,185 @@
-<p>general works!</p>
+@let rotation = festRotation();
+
+<main class="@container">
+  <main class="flex flex-col items-stretch content-center @[1222px]:flex-row justify-center gap-4 flex-wrap">
+    <span class="grow-0 flex flex-col items-center gap-4">
+      <nav class="flex-1 card tapes-bg bg-violet-600 product-mask bg-size-[30rem] w-full max-w-[40rem] md:min-w-lg font-splatoon2 flex gap-4 text-lg">
+        <main class="paper-bg paper-design flex justify-center">
+          <h1 class="font-splatoon1 text-3xl text-gray-800">Core Stuff</h1>
+        </main>
+    
+        <span class="flex gap-4 justify-center flex-wrap">
+          <div class="bg-black/30 flex w-fit py-2 px-4 rounded-lg">
+            <label class="flex flex-col items-center justify-center" for="splatfest-id">
+              <h2 class="text-shadow-2xs text-shadow-black text-center">SPLATFEST ID</h2>
+              <input 
+              (change)="onSplatfestIdChange($event)"
+              [value]="splatfestId()"
+              class="text-gray-300 w-30 bg-black/40 rounded-full flex justify-center text-center" 
+              type="text"
+              maxlength="4"
+              minlength="4"
+              inputmode="numeric"
+              pattern="\d*"
+              name="splatfest-id" 
+              id="splatfest-id">
+            </label>
+          </div>
+    
+          <div class="bg-black/30 flex w-fit py-2 px-4 rounded-lg">
+            <label class="flex flex-col items-center justify-center" for="battle-result-rate">
+              <h2 class="text-shadow-2xs text-shadow-black text-center">RESULT MULTIPLIER</h2>
+              <input 
+              (change)="onBattleResultRateChange($event)"
+              [value]="battleResultRate()"
+              class="text-gray-300 w-30 bg-black/40 rounded-full flex justify-center text-center" 
+              type="text"
+              maxlength="1"
+              inputmode="numeric"
+              pattern="\d*"
+              name="battle-result-rate" 
+              id="battle-result-rate">
+            </label>
+          </div>
+    
+          <div class="bg-black/30 flex w-fit py-2 px-4 rounded-lg">
+            <label class="flex flex-col items-center justify-center" for="version">
+              <h2 class="text-shadow-2xs text-shadow-black text-center">VERSION <fa-icon [icon]="['fas', 'question-circle']"></fa-icon></h2>
+              <input 
+              (change)="onVersionChange($event)"
+              [value]="version()"
+              class="text-gray-300 w-30 bg-black/40 rounded-full flex justify-center text-center" 
+              type="text"
+              maxlength="1"
+              inputmode="numeric"
+              pattern="\d*"
+              name="version" 
+              id="version">
+            </label>
+          </div>
+        </span>
+    
+      </nav>
+      <nav class="flex-1 card tapes-bg bg-pink-600 product-mask bg-size-[30rem] w-full max-w-[40rem] md:min-w-lg font-splatoon2 flex gap-4 text-lg">
+        <main class="paper-bg paper-design flex justify-center">
+          <h1 class="font-splatoon1 text-3xl text-gray-800">Matchmaking Stuff</h1>
+        </main>
+    
+        <span class="flex gap-4">
+    
+          <label class="flex-1 bg-black/30 hover:bg-black/20 group w-fit py-2 px-4 rounded-lg flex items-center gap-2" for="low-population">
+            <span 
+            [class]="{ 'bg-emerald-500': lowPopulation()}"
+            class="font-bold w-5 h-5 flex items-center justify-center rounded-full p-3 border border-gray-700/80 bg-black/20">
+              @if (lowPopulation()) { ✓ } @else { ✗ }</span>
+            <h2 class="text-shadow-2xs text-shadow-black text-gray-100 group-hover:text-white">
+              1700+ MATCH
+              <fa-icon [icon]="['fas', 'question-circle']"></fa-icon>
+            </h2>
+            <input 
+            (change)="onMatchmakingParamChange($event, 'LowPopulationNotJP')"
+            [checked]="lowPopulation()"
+            class="hidden"
+            type="checkbox" 
+            name="low-population" 
+            id="low-population">
+          </label>
+    
+    
+          <label class="flex-1 bg-black/30 hover:bg-black/20 group w-fit py-2 px-4 rounded-lg flex items-center gap-2" for="separate-matchmaking">
+            <span 
+            [class]="{ 'bg-emerald-500': separateMatchmaking()}"
+            class="font-bold w-5 h-5 flex items-center justify-center rounded-full p-3 border border-gray-700/80 bg-black/20">
+              @if (separateMatchmaking()) { ✓ } @else { ✗ }</span>
+            <h2 class="text-shadow-2xs text-shadow-black text-gray-100 group-hover:text-white">
+              SEPARATE MATCH JP
+              <fa-icon [icon]="['fas', 'question-circle']"></fa-icon>
+            </h2>
+            <input 
+            (change)="onMatchmakingParamChange($event, 'SeparateMatchingJP')"
+            [checked]="separateMatchmaking()"
+            class="hidden"
+            type="checkbox" 
+            name="separate-matchmaking" 
+            id="separate-matchmaking">
+          </label>
+        </span>
+      </nav>
+    </span>
+  
+  
+    <nav class="grow card tapes-bg bg-teal-600 product-mask bg-size-[30rem] w-full max-w-[40rem] md:min-w-lg font-splatoon2 flex flex-col gap-4 text-lg">
+      <main class="paper-bg paper-design flex justify-center">
+        <h1 class="font-splatoon1 text-3xl text-gray-800">Rotation</h1>
+      </main>
+  
+      <span class="flex-1 flex gap-4 flex-col">
+        <label class="bg-black/30 py-2 px-4 rounded-lg flex items-center gap-2" for="rule">
+          <h2 class="text-shadow-2xs text-shadow-black text-gray-100 group-hover:text-white">
+            RULE
+          </h2>
+          <select (change)="onRuleChange($event)" id="rule" class="block w-fit rounded-lg bg-white/30 border-1 border-gray-400 focus:border-white">
+            <span class="text-black">
+              <option [value]="availableRules.TurfWars" [selected]="rotation?.Rule === availableRules.TurfWars">Turf Wars</option>
+              <option [value]="availableRules.Rainmaker" [selected]="rotation?.Rule === availableRules.Rainmaker">Turf Maker</option>
+              <option [value]="availableRules.TowerControl" [selected]="rotation?.Rule === availableRules.TowerControl">Turf Control</option>
+              <option [value]="availableRules.SplatZones" [selected]="rotation?.Rule === availableRules.SplatZones">Turf Zones</option>
+            </span>
+          </select>
+        </label>
+
+        <span class="flex-1 bg-black/30 py-2 px-4 rounded-lg flex flex-col gap-2">
+          <h1>STAGES</h1>
+          <div cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onStageMove($event)" class="flex items-center justify-center gap-2">
+            @if (rotation) {
+              @let stageCount = rotation.Stages.length;
+  
+              @for(stage of rotation.Stages; track stage.MapID) {
+                @let isRegularStage = regularStages.includes(stage.MapID);
+    
+                <button cdkDrag [cdkDragDisabled]="stageCount <= 1" class="relative rounded-lg overflow-hidden group">
+                  <img
+                  width="170px" 
+                  [src]="`assets/images/stages/${stage.MapID}.webp`" 
+                  alt=""
+                  class="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all">
+
+                  <span class="h-full w-[170px] border-2 border-dashed rounded-lg"  *cdkDragPlaceholder></span>
+  
+                  @if (!isRegularStage) {
+                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-shadow-lg text-shadow-white/20">
+                      ID {{stage.MapID}}
+                    </span>
+                  }
+  
+                  @if (stageCount > 1) {
+                    <button
+                    id="delete-stage"
+                    (click)="onRemoveStage($index)"
+                    class="cursor-pointer font-splatoon1 absolute -top-0 right-0 btn-1 h-fit py-0 before:bg-red-500 hover:before:bg-red-400 w-fit px-1 rotate-14 hover:text-2xl">
+                      X
+                    </button>
+                  }
+  
+                </button>
+              }
+  
+              @if (stageCount < 3) {
+                @for (_ of stageSlotRange(3 - stageCount); track $index) {
+                  <button 
+                  (click)="onAddStageClick()"
+                  class="bg-black/30 h-full w-[170px] rounded-lg flex items-center justify-center border-dashed border-2 border-gray-600 text-gray-400 hover:text-white hover:border-white cursor-pointer">
+                    Select
+                  </button>
+                }
+              }
+            }
+
+          </div>
+        </span>
+  
+      </span>
+    </nav>
+  
+  </main>
+</main>

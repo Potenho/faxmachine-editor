@@ -20,9 +20,16 @@ export interface SplatfestTime {
 	}
 }
 
+export enum SplatfestRules {
+  TurfWars = 'cPnt',
+  SplatZones = 'cVar',
+  TowerControl = 'cVlf',
+  Rainmaker = 'cVgl',
+}
+
 export interface SplatfestRotation {
-	Rule: string,
-	Stages: [StageConfig, StageConfig?, StageConfig?];
+	Rule: SplatfestRules,
+	Stages: StageConfig[];
 }
 
 export interface StageConfig {

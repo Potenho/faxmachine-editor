@@ -1,34 +1,35 @@
 <nav class="relative w-full">
   
-  <span class="@container w-full flex justify-between items-center rounded-full bg-white/10 md:bg-white/0">
+  <span class="@container w-full flex justify-between items-center rounded-full border border-white/15 bg-white/10 md:bg-white/0 md:border-0">
     <div class="relative">
       <button 
       animate.enter="enter-animation"
       (click)="isMenuOpen.set(!isMenuOpen())"
-      class="w-11 h-11 gap-4 rounded-full text-center flex justify-center items-center md:bg-white/10 md:backdrop-blur-sm text-gray-300 hover:text-white cursor-pointer">
+      class="w-11 h-11 gap-4 rounded-full text-center flex justify-center items-center md:border md:border-white/15 md:bg-white/10 md:backdrop-blur-sm text-gray-300 hover:text-white cursor-pointer">
         <fa-icon class="text-lg" [icon]="['fas', 'bars']"></fa-icon>
       </button>
 
-      <ul
-      [style.display]="isMenuOpen() ? 'block' : 'none'"
-      class="absolute mt-2 font-splatoon2 text-lg text-gray-300 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-md w-40 text-nowrap">
-        <li>
-          <button (click)="onSaveClick()" class="flex gap-2 items-center hover:text-white">
-            <fa-icon [icon]="['fas', 'file']"></fa-icon>
-            <p>Save</p>
-          </button>
-        </li>
-        <li>
-          <button (click)="onLeaveConfirmation.set(true)" class="flex gap-2 text-red-500 hover:text-red-400">
-            <div class="w-[22px] flex justify-center">«</div>
-            <p>Go back</p>
-          </button>
-        </li>
-      </ul>
+      @if (isMenuOpen()) {
+        <ul
+        class="absolute border border-white/15 mt-2 font-splatoon2 text-lg text-gray-100 px-4 py-2 bg-white/10 backdrop-blur-lg rounded-md w-40 text-nowrap">
+          <li>
+            <button (click)="onSaveClick()" class="flex gap-2 items-center hover:text-white">
+              <fa-icon [icon]="['fas', 'file']"></fa-icon>
+              <p>Save</p>
+            </button>
+          </li>
+          <li>
+            <button (click)="onLeaveConfirmation.set(true)" class="flex gap-2 text-red-500 hover:text-red-400">
+              <div class="w-[22px] flex justify-center">«</div>
+              <p>Go back</p>
+            </button>
+          </li>
+        </ul>
+      }
     </div>
     <main 
     animate.enter="enter-animation"
-    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:bg-white/10 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
+    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:border md:border-white/15 md:bg-white/10 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
       <a 
       class="hover:text-white px-2 @[418px]:px-4 rounded-full"
       [routerLink]="'/editor/general'"
@@ -65,12 +66,12 @@
 
 <app-modal [(modalOpen)]="onLeaveConfirmation" [bgColor]="'bg-blue-500'">
   <header>You're about to leave the editor</header>
-  <div class="space-y-4 space-x-4">
-    <p>
-      Are you sure you want to leave? Unsaved changes will be lost.
-    </p>
-    <button class="btn-2" (click)="onLeave(true)">Save</button>
-    <button class="btn-2 to-rose-500 from-pink-700 hover:to-rose-400 hover:from-pink-600" (click)="onLeave(false)">Discard</button>
-    <button class="btn-2" (click)="onLeaveConfirmation.set(false)">Cancel</button>
-  </div>
+  <p class="text-lg text-gray-200">
+    Are you sure you want to leave? Unsaved changes will be lost.
+  </p>
+  <span class="flex flex-row justify-end gap-4 w-full">
+    <button class="btn-2 m-0" (click)="onLeave(true)">Save</button>
+    <button class="btn-2 to-rose-500 from-pink-700 hover:to-rose-400 hover:from-pink-600 m-0" (click)="onLeave(false)">Discard</button>
+    <button class="btn-2 m-0" (click)="onLeaveConfirmation.set(false)">Cancel</button>
+  </span>
 </app-modal>

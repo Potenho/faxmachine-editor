@@ -15,7 +15,7 @@ export const routes: Routes = [
     { path: 'about', component: About },
   ] }, 
   { path: 'editor', component: Editor, canActivateChild: [isEditingGuard], children: [
-    { path: '', redirectTo: 'news-script', pathMatch: 'full' },
+    { path: '', redirectTo: 'general', pathMatch: 'full' },
     { path: 'general', component: General },
     { path: 'news-script', component: NewsScript },
     { path: 'teams', component: Teams },

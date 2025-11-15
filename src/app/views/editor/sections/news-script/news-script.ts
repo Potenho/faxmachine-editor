@@ -1,15 +1,14 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { EditorService } from '../../../../services/splatfest/editor';
 import { NewsSections } from '../../../../common/types/splatfest/news-sectios';
-import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
-import { Command } from "./command/command";
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Languages } from '../../../../common/types/splatfest/languages';
 
 @Component({
   selector: 'app-news-script',
   templateUrl: './news-script.html',
   styleUrl: './news-script.scss',
-  imports: [CdkDropList, CdkDrag, Command],
+  imports: [],
 })
 export class NewsScript {
   #editor = inject(EditorService);

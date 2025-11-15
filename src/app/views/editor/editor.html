@@ -1,6 +1,8 @@
 <main class="relative h-full w-full flex flex-col gap-4">
-  <nav class="sticky pt-4 top-0 w-full">
+  <nav class="sticky pt-4 top-0 w-full z-1">
     <app-nav-menu></app-nav-menu>
   </nav>
-  <router-outlet></router-outlet>
+  <span class=" relative h-full w-full">
+    <router-outlet></router-outlet>
+  </span>
 </main>
