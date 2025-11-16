@@ -1,6 +1,6 @@
 <nav class="relative w-full">
   
-  <span class="@container w-full flex justify-between items-center rounded-full border border-white/15 bg-white/10 md:bg-white/0 md:border-0">
+  <span class="@container/nav w-full flex justify-between items-center rounded-full border border-white/15 bg-white/10 md:bg-white/0 md:border-0">
     <div class="relative">
       <button 
       animate.enter="enter-animation"
@@ -29,9 +29,9 @@
     </div>
     <main 
     animate.enter="enter-animation"
-    class="w-fit gap-1 @[418px]:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:border md:border-white/15 md:bg-white/10 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
+    class="w-fit gap-1 @[418px]/nav:gap-2 text-center text-gray-300 flex justify-between text-shadow-2xs text-shadow-black text-lg md:border md:border-white/15 md:bg-white/10 md:backdrop-blur-sm px-4 py-2 font-splatoon2 rounded-full">
       <a 
-      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      class="hover:text-white px-2 @[418px]/nav:px-4 rounded-full"
       [routerLink]="'/editor/general'"
       [routerLinkActive]="'bg-violet-600 text-white'">
         <fa-icon class="text-lg" [icon]="['fas', 'cog']"></fa-icon>
@@ -41,21 +41,21 @@
       </a>
     
       <a 
-      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      class="hover:text-white px-2 @[418px]/nav:px-4 rounded-full"
       [routerLink]="'/editor/teams'"
       [routerLinkActive]="'bg-violet-600 text-white'">
         <fa-icon class="text-lg" [icon]="['fas', 'flag']"></fa-icon>
-        <p class="hidden @[418px]:inline">
+        <p class="hidden @[418px]/nav:inline">
           Teams
         </p>
       </a>
     
       <a 
-      class="hover:text-white px-2 @[418px]:px-4 rounded-full"
+      class="hover:text-white px-2 @[418px]/nav:px-4 rounded-full"
       [routerLink]="'/editor/news-script'"
       [routerLinkActive]="'bg-violet-600 text-white'">
         <fa-icon class="text-lg" [icon]="['fas', 'newspaper']"></fa-icon>
-        <p class="hidden @[418px]:inline">
+        <p class="hidden @[418px]/nav:inline">
           News
         </p>
       </a>

@@ -16,7 +16,7 @@
   }
   
   body {
-    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[26rem] text-stone-50;
+    @apply bg-[url(../public/assets/images/backgrounds/camo-black.png)] bg-[30%] bg-size-[30rem] lg:bg-size-[26rem] text-stone-50 bg-black;
   }
 }
 
@@ -45,7 +45,7 @@
   }
 
   .card {
-    @apply rounded-lg pt-10 p-8 w-fit flex flex-col;
+    @apply rounded-lg pt-10 p-4 md:pt-10 md:p-8 w-fit flex flex-col;
   }
 
   .product-mask {
